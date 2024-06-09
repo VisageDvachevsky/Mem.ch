@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+header, footer {
+    width: 100%;
+    background: linear-gradient(90deg, #3f3f3f, #1f1f1f);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+header {
+    height: 5.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-radius: 0 0 15px 15px;
+}
+
+header h1 {
+    float: left;
+    font-size: 24px;
+}
+
+header .theme-switcher {
+    float: right;
+}
+
+.theme-switcher label {
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+body.dark-theme .container {
+    background-color: #1E1E1E;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+footer {
+    border-radius: 15px 15px 0 0;
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+body.dark-theme footer {
+    background-color: #1f1f1f;
+}
+
+.stats p {
+    margin: 5px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.description {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #E1DFDD; 
+    border: 1px solid #A6A6A6; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    animation: slideIn 1s ease-in-out; 
+}
+
+body.dark-theme .description {
+    background-color: #252525;
+    border-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+body.dark-theme a {
+    color: #64ffda;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+body.dark-theme a:hover {
+    color: #00e5ff;
+}
+
+#new-thread-section {
+    text-align: center;
+    margin: 40px 0; /* Увеличим отступы для более просторного вида */
+}
+
+#new-thread-button {
+    font-size: 18px;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px; /* Более плавные углы */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Добавим анимацию при наведении */
+}
+
+#new-thread-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+#threads-container {
+    margin-top: 40px; /* Увеличим отступ для разделения секций */
+    padding: 0 20px; /* Добавим отступы для контейнера */
+}
+
+.thread-card {
+    display: flex;
+    flex-direction: row; /* Устанавливаем строку для размещения изображения справа */
+    justify-content: space-between; /* Разделяем содержимое и изображение */
+    border: 1px solid #ccc;
+    background-color: #fff; /* Светлый фон для лучшего контраста */
+    padding: 20px;
+    margin-bottom: 30px; /* Увеличим отступы между карточками */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Более мягкие тени */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.thread-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Более выразительные тени */
+}
+
+body.dark-theme .thread-card {
+    background-color: #2c2c2c;
+    border-color: #444;
+    color: #f0f0f0; /* Светлый текст на темном фоне */
+}
+
+.thread-image {
+    width: 150px; /* Фиксированная ширина для изображения */
+    height: auto;
+    margin-left: 20px; /* Отступ слева для отделения изображения от содержимого */
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0; /* Изображение не уменьшается */
+    order: 2; /* Размещаем изображение вторым элементом */
+}
+
+.thread-messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; /* Заполним оставшееся пространство */
+    order: 1; /* Размещаем сообщения первым элементом */
+}
+
+.message-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.message-card strong {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px; 
+}
+
+.message-card p {
+    margin: 0;
+    font-size: 16px; 
+    color: #333;
+}
+
+.thread-link-button {
+    font-size: 16px;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    align-self: flex-start;
+}
+
+.thread-link-button:hover {
+    background-color: #218838;
+    transform: scale(1.05); 
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.back-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    animation: fadeIn 0.5s ease-in-out; 
+}
+
+.modal-content {
+    background-color: #fff;
+    color: black;
+    margin: 10% auto; 
+    padding: 30px;
+    border: none;
+    width: 80%; 
+    max-width: 600px;
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    animation: slideIn 0.7s ease-in-out, scaleUp 0.7s ease-in-out; 
+    transform-origin: top center;
+    position: relative;
+}
+
+body.dark-theme .modal-content {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    margin: 10% auto; 
+    padding: 30px;
+    border: none;
+    width: 80%; 
+    max-width: 600px;
+    border-radius: 16px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    animation: slideIn 0.7s ease-in-out, scaleUp 0.7s ease-in-out; 
+    transform-origin: top center;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.close-button {
+    color: #bbb;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #f0f0f0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.modal-content form input[type="text"],
+.modal-content form input[type="file"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: black;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .modal-content form input[type="text"],
+body.dark-theme .modal-content form input[type="file"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content form input[type="text"]:focus,
+.modal-content form input[type="file"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.modal-content form button {
+    font-size: 18px;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); 
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom-file-upload {
+    margin-right: 0.5rem;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+body.dark-theme .custom-file-upload:hover {
+    background-color: #003a7a;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#image-preview {
+    width: 100px; 
+    height: 100px;
+    margin: 10px 0; 
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; 
+}
+
+#image-preview:hover {
+    transform: scale(1.1); 
+}
+
+.hidden {
+    display: none;
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switcher input[type="checkbox"] {
+    display: none;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+    overflow: hidden; 
+}
+
+.switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    border-radius: 50%;
+}
+
+@keyframes fillGradient {
+    0% {
+        background: linear-gradient(to right, #007bff 0%, #ccc 100%);
+    }
+    100% {
+        background: linear-gradient(to right, #007bff 100%, #ccc 100%);
+    }
+}
+
+@keyframes clearGradient {
+    0% {
+        background: linear-gradient(to right, #64ffda 0%, #ccc 100%);
+    }
+    100% {
+        background: linear-gradient(to right, #ccc 100%, #64ffda 0%);
+    }
+}
+
+body.light-theme input:checked + .switch .slider {
+    animation: fillGradient 0.4s forwards;
+}
+
+body.light-theme input + .switch .slider:before {
+    background-color: #fff;
+}
+
+input:checked + .switch .slider:before {
+    transform: translateX(26px);
+}
+
+body.dark-theme input:checked + .switch .slider {
+    animation: fillGradient 0.4s forwards;
+}
+
+body.dark-theme input + .switch .slider:before {
+    background-color: #555;
+}
+
+body.dark-theme input:checked + .switch .slider:before {
+    background-color: #333;
+}
+
+body.light-theme input:not(:checked) + .switch .slider {
+    animation: clearGradient 0.4s forwards;
+}
+
+body.dark-theme input:not(:checked) + .switch .slider {
+    animation: clearGradient 0.4s forwards;
+}

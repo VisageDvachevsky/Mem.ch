@@ -1,0 +1,290 @@
+        <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mem.ch</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="logo">Mem.ch</div>
+        <div class="theme-switcher">
+            <input type="checkbox" id="theme-toggle" />
+            <label for="theme-toggle" class="switch">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+    <div class="container">
+        
+        <section class="description">
+            <p>
+                <strong>Что такое mem.ch?</strong><br>
+                Мемч  - это простой имиджборд, где каждый может оставлять комментарии и делиться изображениями. Есть доски, посвященные отдельным темам. От общения и культуры до политики и деловых новостей. Пользователям не нужна регистрация учетной записи перед участием в сообществе, все происходит анонимно. Не стесняйтесь найти на доску, которая вас интересует, и сразу приступайте к общению!
+            </p>
+        </section>
+        <div class="main-content">
+            <section class="popular-threads" id="popular-threads">
+                <h2>Популярные треды</h2>
+                <div class="threads">
+                    <div class="thread">
+                        <img src="https://placehold.co/600x400" alt="Музыка">
+                        <p class="title"></p>
+                        <p class="description"></p>
+                    </div>
+                    <div class="thread">
+                        <img src="https://placehold.co/600x400" alt="Япония">
+                        <p class="title"></p>
+                        <p class="description"></p>
+                    </div>
+                    <div class="thread">
+                        <img src="https://placehold.co/600x400" alt="Игры">
+                        <p class="title"></p>
+                        <p class="description"></p>
+                    </div>
+                    <div class="thread">
+                        <img src="https://placehold.co/600x400" alt="IT">
+                        <p class="title"></p>
+                        <p class="description"></p>
+                    </div>
+                </div>
+            </section>
+            <section class="boards">
+                <h2>Доски</h2>
+                <div class="board-list">
+                    <div class="board-item" data-board="b">
+                        <div class="board-name">/b/</div>
+                        <div class="board-description">Бред</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="vg">
+                        <div class="board-name">/vg/</div>
+                        <div class="board-description">Видеоигры</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="po">
+                        <div class="board-name">/po/</div>
+                        <div class="board-description">Политика</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="mu">
+                        <div class="board-name">/mu/</div>
+                        <div class="board-description">Музыка</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="news">
+                        <div class="board-name">/news/</div>
+                        <div class="board-description">Новости</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="ai">
+                        <div class="board-name">/ai/</div>
+                        <div class="board-description">Искусственный интеллект</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="mov">
+                        <div class="board-name">/mov/</div>
+                        <div class="board-description">Фильмы</div>
+                        <div class="board-postс"></div>
+                    </div>
+                    <div class="board-item" data-board="dev">
+                        <div class="board-name">/dev/</div>
+                        <div class="board-description">Разработка</div>
+                        <div class="board-posts"></div>
+                    </div>
+                    <div class="board-item" data-board="sp">
+                        <div class="board-name">/sp/</div>
+                        <div class="board-description">Спорт</div>
+                        <div class="board-postс"></div>
+                    </div>
+                    <div class="board-item" data-board="zog">
+                        <div class="board-name">/zog/</div>
+                        <div class="board-description">Теории заговора</div>
+                        <div class="board-postс"></div>
+                    </div>
+                    <div class="board-item" data-board="biz">
+                        <div class="board-name">/biz/</div>
+                        <div class="board-description">Бизнес</div>
+                        <div class="board-postс"></div>
+                    </div>
+                    <div class="board-item" data-board="sn">
+                        <div class="board-name">/sn/</div>
+                        <div class="board-description">Паранормальное</div>
+                        <div class="board-postс"></div>
+                    </div>
+                    <div class="board-item" data-board="a">
+                        <div class="board-name">/a/</div>
+                        <div class="board-description">Аниме</div>
+                        <div class="board-postс"></div>
+                    </div>
+                    <div class="board-item" data-board="v">
+                        <div class="board-name">/v/</div>
+                        <div class="board-description">Видео</div>
+                        <div class="board-postс"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="stats">
+            <p id="post-count">Количество тредов: 0</p>
+            <p id="online-count">Онлайн: 0</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js" integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.board-item').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    const board = this.getAttribute('data-board');
+                    window.location.href = `board.html?board=${board}`;
+                });
+            });
+
+            const themeToggle = document.getElementById('theme-toggle');
+
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-theme');
+                    document.body.classList.remove('light-theme');
+                    themeToggle.checked = true;
+                } else {
+                    document.body.classList.add('light-theme');
+                    document.body.classList.remove('dark-theme');
+                    themeToggle.checked = false;
+                }
+            }
+
+            window.addEventListener('load', function() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                setTheme(savedTheme);
+            });
+
+            themeToggle.addEventListener('change', function() {
+                const theme = themeToggle.checked ? 'dark' : 'light';
+                setTheme(theme);
+                localStorage.setItem('theme', theme);
+            });
+
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const socket = io();
+
+            function updateStats(data) {
+                document.getElementById('post-count').textContent = `Количество тредов: ${data.post_count}`;
+                document.getElementById('online-count').textContent = `Онлайн: ${data.online_count}`;
+            }
+
+            fetch('/api/stats')
+                .then(response => response.json())
+                .then(data => {
+                    updateStats(data);
+                })
+                .catch(error => console.error('Error fetching stats:', error));
+
+            socket.on('stats_update', function(data) {
+                updateStats(data);
+            });
+
+            setInterval(() => {
+                fetch('/api/stats')
+                    .then(response => response.json())
+                    .then(data => {
+                        updateStats(data);
+                    })
+                    .catch(error => console.error('Error fetching stats:', error));
+            }, 10000);
+
+            async function loginUser() {
+                try {
+                    const response = await fetch('/api/login', {
+                        method: 'POST'
+                    });
+                    const data = await response.json();
+
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+
+                    localStorage.setItem('user_id', data.user_id);
+                    localStorage.setItem('user_code', data.user_code);
+
+                    return data;
+                } catch (error) {
+                    console.error('Error during login:', error);
+                }
+            }
+
+            loginUser();
+
+                window.onload = function() {
+                    console.log("Page loaded, fetching popular threads...");
+                    fetchPopularThreads();
+
+                    function fetchPopularThreads() {
+                        fetch('/api/popular_threads')
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Fetched threads:', data);
+                                const threadsContainer = document.querySelector('#popular-threads .threads');
+                                threadsContainer.innerHTML = ''; 
+                                data.forEach(thread => {
+                                    const [id, board, title, image, date, last_message, popularity_score] = thread;
+                                    const threadElement = document.createElement('div');
+                                    threadElement.className = 'thread';
+                                    threadElement.innerHTML = `
+                                        <img src="${image}" alt="${title}">
+                                        <p class="title">/${board}/${title}</p>
+                                        <p class="description">${last_message}</p>
+                                    `;
+                                    threadsContainer.appendChild(threadElement);
+                                });
+                            })
+                            .catch(error => console.error('Error fetching popular threads:', error));
+                    }
+
+                    fetchPopularThreads();
+
+                    socket.on('popular_threads_update', function(data) {
+                        console.log('Popular threads updated:', data);
+                        const threadsContainer = document.querySelector('#popular-threads .threads');
+                        threadsContainer.innerHTML = ''; 
+                        data.forEach(thread => {
+                            const [id, board, title, image, date, last_message, popularity_score] = thread;
+                            const threadElement = document.createElement('div');
+                            threadElement.className = 'thread';
+                            threadElement.innerHTML = `
+                                <img src="${image}" alt="${title}">
+                                <p class="title">/${board}/${title}</p>
+                                <p class="description">${last_message}</p>
+                            `;
+                            threadsContainer.appendChild(threadElement);
+                        });
+                    });
+
+                    socket.on('new_thread', function(data) {
+                        console.log('New thread:', data);
+                        fetchPopularThreads();
+                    });
+
+                    socket.on('new_message', function(data) {
+                        console.log('New message:', data);
+                        fetchPopularThreads();
+                    });
+                }
+
+        });
+    </script>
+</body>
+</html>
